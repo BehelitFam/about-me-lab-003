@@ -90,9 +90,22 @@ var guessCount = 0;
 var duelPrompt = 'Alright, now for the cool questions. How many hacker duels do you think I\'ve won? You have 4 tries to guess.';
 var duelResp = 'Nice try... I have defeated ' + hackerDuels + ' foolish hackers. Cross me and you\'ll be the ' + hackerDuels + 'th, ' + name + '.';
 
+// Prompts user to guess what science fiction / fantasy weapons I am proficient with. 
+// User answers will be compared with an array containing the weapons I can use effectively.
+// When a user guesses correctly, they will be congratulated; if not, they will be asked five more 
+// times to guess correctly. 
+var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre humor'];
+var guessRight = false;
+var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
+var wepResp = 'Okay, stop, I\'ll just tell you.';
+var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason, and mediocre humor.';
+
+
 // run functions
 yNQuestion();
 numGuess();
+wepGuess();
+
 
 function yNQuestion(){
     for (var i = 0; i < questions.length; i++) {
@@ -143,17 +156,9 @@ function numGuess(){
     alert(duelResp);
 }
 
-// Prompts user to guess what science fiction / fantasy weapons I am proficient with. 
-// User answers will be compared with an array containing the weapons I can use effectively.
-// When a user guesses correctly, they will be congratulated; if not, they will be asked five more 
-// times to guess correctly. 
-var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre humor'];
-guessCount = 0;
-var guessRight = false;
-var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
-var wepResp = 'Okay, stop, I\'ll just tell you.';
-var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason, and mediocre humor.';
-while (guessCount < 6 && !guessRight) {
+function wepGuess(){
+    guessCount = 0;
+    while (guessCount < 6 && !guessRight) {
     userGuess = prompt(wepPrompt).toLowerCase();
     console.log('user guessed ' + userGuess);
     guessCount++;
@@ -170,8 +175,14 @@ while (guessCount < 6 && !guessRight) {
                 console.log('user didn\'t guess a wep.');
         }
     }
+    }
+    alert(wepResp + ' ' + wepAll);
 }
-alert(wepResp + ' ' + wepAll);
+
+
+
+
+
 
 // Gives user an alert telling them how many guesses they got right
 var knowMe = '';
