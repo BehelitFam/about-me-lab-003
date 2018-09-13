@@ -1,9 +1,11 @@
 body {
     background-image: url("sweetBackground.jpg");
-    background-color: rgb(40, 40, 40);
+    background-color: rgb(190, 247, 255);
     font-size: 10;
     color: rgb(212, 212, 212);
     list-style-type: square;
+    text-align: center;
+    display: inline-block;
 }
 
 header {
@@ -11,7 +13,6 @@ header {
     color: rgb(230, 230, 230);
     height: 70px;
     line-height: 70px;
-    text-align: center;
     margin: 20px;
     border: 2px solid black;
 }
@@ -32,20 +33,28 @@ p {
     padding: 5px;
 }
 
+p
+
 main {
     margin: 25px;
 }
 
 section {
-    margin: 20px;
+    margin: 5px;
     padding: 10px;
-    background: rgb(95, 95, 95);
-    border: 2px solid black;
+    background: linear-gradient(rgba(37, 3, 2, 0.99), rgba(124, 0, 0, .1));
+    border: 1px solid linear-gradient(rgba(14, 2, 1, 0.9), rgba(150, 0, 0, .2));
+    margin-bottom: 10px;
 }
 
 ul, ol {
-    list-style-type: decimal;
     padding: 5px;
+    text-align: center;
+}
+
+ol {
+    list-style-type: decimal;
+    display: inline;
 }
 
 li {
@@ -54,7 +63,11 @@ li {
 }
 
 footer {
-    background: #636363;
-    margin: 20px;
-    border: 2px solid black;
+    font-size: 50px;
+    background: linear-gradient(rgb(162, 225, 250, .2), rgba(60, 206, 216, 1));
+    height: 150px;
+    color: rgb(230, 230, 230);
+    display: fill;
+    text-align: center;
+    padding: 40px;
 }
