@@ -70,7 +70,8 @@ if (questions.length == respIncorrect.length) {
 } else {
     console.log('error: unequal numbers of y/n questions and "incorrect" responses');
 }
-        
+
+
 // holds error messages for bad user inputs
 var badYNAnswer = 'You didn\'t answer yes or no!';
 var badIntAnswer = 'Integers only, please!';
@@ -79,32 +80,33 @@ var badIntAnswer = 'Integers only, please!';
 // and sends an alert that responds to their answers.
 var userGuess = '';
 
-for (var i = 0; i < questions.length; i++) {
-    userGuess = prompt(questions[i]).charAt(0).toLowerCase();
-    console.log('user guessed ' + userGuess);
 
-    if (userGuess === answer[i]) {
-        alert(respCorrect[i]);
-        correctCount++;
-        console.log('user guessed correctly. guessCount is ' + correctCount);
-    } else if (userGuess != 'n' && userGuess != 'y') {
-        alert(badYNAnswer);
-        console.log('user gave bad y/n answer');
-    } else {
-        alert(respIncorrect[i]);
-        console.log('user guessed incorrectly');
+
+// run functions
+yNQuestion();
+
+
+function yNQuestion(){
+    for (var i = 0; i < questions.length; i++) {
+        userGuess = prompt(questions[i]).charAt(0).toLowerCase();
+        console.log('user guessed ' + userGuess);
+
+        if (userGuess === answer[i]) {
+            alert(respCorrect[i]);
+            correctCount++;
+            console.log('user guessed correctly. guessCount is ' + correctCount);
+        } else if (userGuess != 'n' && userGuess != 'y') {
+            alert(badYNAnswer);
+            console.log('user gave bad y/n answer');
+        } else {
+            alert(respIncorrect[i]);
+            console.log('user guessed incorrectly');
+        }
     }
-}
+};
 
-// Generates a random number between 20 and 100 and stores as the number of hacker duels I have supposedly won,
-// then prompts the user to guess that number until they have guessed four times or guessed correctly.
-// Gives the user an alert each time they guess telling them if their guess is high, low, or correct.
-var hackerDuels = Math.floor(Math.random() * 81) + 20;
-console.log('I have supposedly won ' + hackerDuels + ' hacker duels.');
 
-var guessCount = 0;
-var duelPrompt = 'Alright, now for the cool questions. How many hacker duels do you think I\'ve won? You have 4 tries to guess.';
-var duelResp = 'Nice try... I have defeated ' + hackerDuels + ' foolish hackers. Cross me and you\'ll be the ' + hackerDuels + 'th, ' + name + '.';
+
 
 while (guessCount < 4) {
     userGuess = prompt(duelPrompt);
