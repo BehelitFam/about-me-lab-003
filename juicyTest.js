@@ -1,4 +1,22 @@
 'use strict';
+
+/* Greets user, and asks their name. 
+Prompts user to answer 5 yes/no questions about my interests, and creates alerts to tell
+them if they've answered correctly. 
+
+Generates a random number of "hacker duels" I have supposedly won between 20 and 100, then prompts
+ user to guess the number of hacker duels I've supposedly won. If user guesses incorrectly, will
+create an alert telling them if they have guessed high or low, and allows them to guess three more times.
+
+Prompts user to guess which weapons I am supposedly proficient with. Allows the user to guess
+up to six times. If user guesses correctly, or guesses more than six times, gives the user
+a message stating all possible correct answers.
+
+Records the number of correct answers and sends a final alert telling the user how 
+many questions they have guessed correctly. 
+*/
+
+
 // Creates a counter for correct answers
 var correctCount = 0;
 console.log('guessCount is ' + correctCount);
@@ -98,7 +116,8 @@ while (guessCount < 4) {
 
     if (userGuess == hackerDuels) {
         guessCount = 4;
-        duelResp = 'That\'s right. And not a one stood a chance, but for Marlene... *sinks deep into old, painful memories*';
+        duelResp = 'That\'s right. And not a one of em stood a chance, except for Marlene... *wipes away single tear*';
+        correctCount++;
         console.log('User guessed duels correctly');
     } else if (userGuess > hackerDuels) {
         alert('Wow, you must really think I\'m somethin\'... guess again.');
@@ -122,7 +141,7 @@ alert(duelResp);
 // times to guess correctly. 
 var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre joke'];
 guessCount = 0;
-guessRight = false;
+var guessRight = false;
 var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
 var wepResp = 'Okay, stop, I\'ll just tell you.';
 var wepAll = 'I have mastered the Batlith, crysknife, phaser, nuclear ICBM, Reason (anyone read snow crash?), and mediocre humor.';
@@ -137,6 +156,7 @@ while (guessCount < 6 && !guessRight) {
                 guessRight = true;
                 wepResp = 'Nice! I see you too are a weaponmaster of taste.';
                 console.log('user guessed a weapon right');
+                correctCount++;
                 break;
             default:
                 console.log('user didn\'t get it.');
@@ -147,20 +167,18 @@ while (guessCount < 6 && !guessRight) {
 alert(wepResp + ' ' + wepAll);
 
 
-
-
 // Gives user an alert telling them how many guesses they got right
 var knowMe = '';
 
 if (correctCount === 7) {
-    knowMe = ' ABSOLUTE PERFECTION!';
+    knowMe = ' NICE! NICE! YOU ARE ABSOLUTE PERFECTION!';
     console.log('user clearly looked at my source code');
 } else if (correctCount >= 4) {
     knowMe = ' It\'s almost like these questions are primarily based on ancient cheesy jokes.';
     console.log('user is alright.');
 } else {
-    console.log('user is weaksauce and got less than three right.');
+    knowMe = ' Weak. Just... weak. It won\'t be long before you are devoured by a stray raccoon or something.';
+    console.log('user is a weakling who guessed less than three correctly.');
 }
 
-
-alert('You guessed ' + correctCount + ' out of 5 questions right!' + knowMe);
+alert('You guessed ' + correctCount + ' out of 7 questions right!' + knowMe);
