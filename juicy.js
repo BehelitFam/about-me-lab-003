@@ -80,11 +80,19 @@ var badIntAnswer = 'Integers only, please!';
 // and sends an alert that responds to their answers.
 var userGuess = '';
 
+// Generates a random number between 20 and 100 and stores as the number of hacker duels I have supposedly won,
+// then prompts the user to guess that number until they have guessed four times or guessed correctly.
+// Gives the user an alert each time they guess telling them if their guess is high, low, or correct.
+var hackerDuels = Math.floor(Math.random() * 81) + 20;
+console.log('I have supposedly won ' + hackerDuels + ' hacker duels.');
 
+var guessCount = 0;
+var duelPrompt = 'Alright, now for the cool questions. How many hacker duels do you think I\'ve won? You have 4 tries to guess.';
+var duelResp = 'Nice try... I have defeated ' + hackerDuels + ' foolish hackers. Cross me and you\'ll be the ' + hackerDuels + 'th, ' + name + '.';
 
 // run functions
 yNQuestion();
-
+numGuess();
 
 function yNQuestion(){
     for (var i = 0; i < questions.length; i++) {
@@ -107,32 +115,33 @@ function yNQuestion(){
 
 
 
+function numGuess(){
+    while (guessCount < 4) {
+        userGuess = prompt(duelPrompt);
+        guessCount++;
+        duelPrompt = 'Ok, you have ' + (4 - guessCount) + ' more tries. How many hacker duels have I won?';
 
-while (guessCount < 4) {
-    userGuess = prompt(duelPrompt);
-    guessCount++;
-    duelPrompt = 'Ok, you have ' + (4 - guessCount) + ' more tries. How many hacker duels have I won?';
-
-    if (userGuess == hackerDuels) {
-        guessCount = 4;
-        duelResp = 'That\'s right. And not a one of em stood a chance, except for Marlene... *wipes away single tear*';
-        correctCount++;
-        console.log('User guessed duels correctly');
-    } else if (userGuess > hackerDuels) {
-        alert('Wow, you must really think I\'m somethin\'... guess again.');
-        console.log('User guessed high');
-    } else if (userGuess < hackerDuels) {
-        alert('You underestimate my power!');
-        console.log('User guessed low');
-    } else if (typeof userGuess != 'number') {
-        alert();
-        console.log('User may have put in some bad input.');
-    } else {
-        console.log('Not sure how we got here...');
+        if (userGuess == hackerDuels) {
+            guessCount = 4;
+            duelResp = 'That\'s right. And not a one of em stood a chance, except for Marlene... *wipes away single tear*';
+            correctCount++;
+            console.log('User guessed duels correctly');
+        } else if (userGuess > hackerDuels) {
+            alert('Wow, you must really think I\'m somethin\'... guess again.');
+            console.log('User guessed high');
+        } else if (userGuess < hackerDuels) {
+            alert('You underestimate my power!');
+            console.log('User guessed low');
+        } else if (typeof userGuess != 'number') {
+            alert();
+            console.log('User may have put in some bad input.');
+        } else {
+            console.log('Not sure how we got here...');
+        }
     }
-}
 
-alert(duelResp);
+    alert(duelResp);
+}
 
 // Prompts user to guess what science fiction / fantasy weapons I am proficient with. 
 // User answers will be compared with an array containing the weapons I can use effectively.
