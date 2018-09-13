@@ -16,7 +16,6 @@ Records the number of correct answers and sends a final alert telling the user h
 many questions they have guessed correctly. 
 */
 
-
 // Creates a counter for correct answers
 var correctCount = 0;
 console.log('guessCount is ' + correctCount);
@@ -144,7 +143,7 @@ guessCount = 0;
 var guessRight = false;
 var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
 var wepResp = 'Okay, stop, I\'ll just tell you.';
-var wepAll = 'I have mastered the Batlith, crysknife, phaser, nuclear ICBM, Reason (anyone read snow crash?), and mediocre humor.';
+var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason (anyone read snow crash?), and mediocre humor.';
 while (guessCount < 6 && !guessRight) {
     userGuess = prompt(wepPrompt).toLowerCase();
     console.log('user guessed ' + userGuess);
@@ -159,7 +158,7 @@ while (guessCount < 6 && !guessRight) {
                 correctCount++;
                 break;
             default:
-                console.log('user didn\'t get it.');
+                console.log('user didn\'t guess a wep.');
         }
     }
 }
