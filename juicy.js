@@ -41,7 +41,7 @@ var answer = ['y', 'y', 'n', 'y', 'y'];
 var respCorrect = ['Boots and cats and boots and cats and boots and cats and boots and cats and',
                  'I love kitties, and they love me.',
                  'Correct. I\'m glad you think so highly of me, ' + name + '.',
-                 'Plz don\'t tell NASA.',
+                 'Don\'t blow my cover, I still have some more pranks to play on NASA.',
                  'Asimov is bae.',          
                  ];
 
@@ -51,7 +51,6 @@ var respIncorrect = ['Utterly wrong. Looping is love.',
                     'Haha, yes, that\'s right. Wanna go make some crop circles?',
                     'How would that even be possible?',
                     ];
-
 
 // Sends console prompts to check that y/n questions have answers and responses
 if (questions.length === answer.length) {
@@ -72,7 +71,6 @@ if (questions.length == respIncorrect.length) {
     console.log('error: unequal numbers of y/n questions and "incorrect" responses');
 }
         
-
 // holds error messages for bad user inputs
 var badYNAnswer = 'You didn\'t answer yes or no!';
 var badIntAnswer = 'Integers only, please!';
@@ -125,7 +123,7 @@ while (guessCount < 4) {
         alert('You underestimate my power!');
         console.log('User guessed low');
     } else if (typeof userGuess != 'number') {
-        alert('Not sure what to make of that...');
+        alert();
         console.log('User may have put in some bad input.');
     } else {
         console.log('Not sure how we got here...');
@@ -138,12 +136,12 @@ alert(duelResp);
 // User answers will be compared with an array containing the weapons I can use effectively.
 // When a user guesses correctly, they will be congratulated; if not, they will be asked five more 
 // times to guess correctly. 
-var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre joke'];
+var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre humor'];
 guessCount = 0;
 var guessRight = false;
 var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
 var wepResp = 'Okay, stop, I\'ll just tell you.';
-var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason (anyone read snow crash?), and mediocre humor.';
+var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason, and mediocre humor.';
 while (guessCount < 6 && !guessRight) {
     userGuess = prompt(wepPrompt).toLowerCase();
     console.log('user guessed ' + userGuess);
@@ -162,9 +160,7 @@ while (guessCount < 6 && !guessRight) {
         }
     }
 }
-
 alert(wepResp + ' ' + wepAll);
-
 
 // Gives user an alert telling them how many guesses they got right
 var knowMe = '';
