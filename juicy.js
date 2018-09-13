@@ -100,11 +100,14 @@ var wepPrompt = 'Alright, last question. I am proficient with a number of weapon
 var wepResp = 'Okay, stop, I\'ll just tell you.';
 var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason, and mediocre humor.';
 
+// Gives user an alert telling them how many guesses they got right
+var knowMe = '';
 
 // run functions
 yNQuestion();
 numGuess();
 wepGuess();
+userGuessScore();
 
 
 function yNQuestion(){
@@ -179,23 +182,17 @@ function wepGuess(){
     alert(wepResp + ' ' + wepAll);
 }
 
+function userGuessScore(){
+    if (correctCount === 7) {
+        knowMe = ' NICE! NICE! YOU ARE ABSOLUTE PERFECTION!';
+        console.log('user clearly looked at my source code');
+    } else if (correctCount >= 4) {
+        knowMe = ' It\'s almost like these questions are primarily based on ancient cheesy jokes.';
+        console.log('user is alright.');
+    } else {
+        knowMe = ' Weak. Just... weak. It won\'t be long before you are devoured by a stray raccoon or something.';
+        console.log('user is a weakling who guessed less than three correctly.');
+    }
 
-
-
-
-
-// Gives user an alert telling them how many guesses they got right
-var knowMe = '';
-
-if (correctCount === 7) {
-    knowMe = ' NICE! NICE! YOU ARE ABSOLUTE PERFECTION!';
-    console.log('user clearly looked at my source code');
-} else if (correctCount >= 4) {
-    knowMe = ' It\'s almost like these questions are primarily based on ancient cheesy jokes.';
-    console.log('user is alright.');
-} else {
-    knowMe = ' Weak. Just... weak. It won\'t be long before you are devoured by a stray raccoon or something.';
-    console.log('user is a weakling who guessed less than three correctly.');
+    alert('You guessed ' + correctCount + ' out of 7 questions right!' + knowMe);
 }
-
-alert('You guessed ' + correctCount + ' out of 7 questions right!' + knowMe);
