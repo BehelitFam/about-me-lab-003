@@ -9,12 +9,12 @@ body {
 }
 
 header {
-    background: rgb(88, 87, 87);
+    background: linear-gradient(rgba(37, 3, 2, 0.99), rgba(124, 0, 0, .1));
+    border: 1px solid linear-gradient(rgba(14, 2, 1, 0.9), rgba(150, 0, 0, .2));
     color: rgb(230, 230, 230);
     height: 70px;
     line-height: 70px;
     margin: 20px;
-    border: 2px solid black;
 }
 
 h1 {
