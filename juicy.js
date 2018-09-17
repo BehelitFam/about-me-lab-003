@@ -29,46 +29,48 @@ console.log('User entered their name as ' + name);
 alert('Nice to meet you, ' + name + '. Let\'s test your guessing abilities.');
 
 // Creates array variables that dictate the questions, answers, and responses to the yes/no questions
-var questions = ['Do I like repetitive music?', 
+var aboutMeYN = ['Do I like repetitive music?', 
                 'Here\'s an easy one: Do I love kitties?',
                 'Next question, ' + name + '. Do I hate pineapple on pizza?', 
                 'Am I an extraterrestrial life form?',
                 'Do I like science fiction?'
                 ];
 
-var answer = ['y', 'y', 'n', 'y', 'y'];
+var aboutMeYNAnswers = ['y', 'y', 'n', 'y', 'y'];
 
-var respCorrect = ['Boots and cats and boots and cats and boots and cats and boots and cats and',
+var aboutMeCorrect = ['Boots and cats and boots and cats and boots and cats and boots and cats and',
                  'I love kitties, and they love me.',
                  'Correct. I\'m glad you think so highly of me, ' + name + '.',
                  'Don\'t blow my cover, I still have some more pranks to play on NASA.',
                  'Asimov is bae.',          
                  ];
 
-var respIncorrect = ['Utterly wrong. Looping is love.', 
+var aboutMeIncorrect = ['Utterly wrong. Looping is love.', 
                     'What, do I look like some kind of monster?',
                     'Wrong. Pineapple pizza is the one true pizza.',
                     'Haha, yes, that\'s right. Wanna go make some crop circles?',
                     'How would that even be possible?',
                     ];
 
-// Sends console prompts to check that y/n questions have answers and responses
-if (questions.length === answer.length) {
-    console.log('y/n questions have answers.');
-} else {
-    console.log('error: unequal numbers of y/n questions and answers');
-}
+// Checks whether the arrays given to the yNQuestion() function have matching questions, answers, and responses
+function checkYN(){
+    if (aboutMeYN.length === aboutMeYNAnswers.length) {
+        console.log('y/n questions have answers.');
+    } else {
+        console.log('error: unequal numbers of y/n questions and answers');
+    }
 
-if (questions.length === respCorrect.length) {
-    console.log('y/n questions have "correct" responses.');
-} else {
-    console.log('error: unequal numbers of y/n questions and "correct" responses');
-}
+    if (aboutMeYN.length === aboutMeCorrect.length) {
+        console.log('y/n questions have "correct" responses.');
+    } else {
+        console.log('error: unequal numbers of y/n questions and "correct" responses');
+    }
 
-if (questions.length == respIncorrect.length) {
-    console.log('y/n questions have "incorrect" responses');
-} else {
-    console.log('error: unequal numbers of y/n questions and "incorrect" responses');
+    if (aboutMeYN.length == aboutMeIncorrect.length) {
+        console.log('y/n questions have "incorrect" responses');
+    } else {
+        console.log('error: unequal numbers of y/n questions and "incorrect" responses');
+    }
 }
 
 
@@ -76,13 +78,10 @@ if (questions.length == respIncorrect.length) {
 var badYNAnswer = 'You didn\'t answer yes or no!';
 var badIntAnswer = 'Integers only, please!';
 
-// Loop that prompts the user to answer y/n questions, records correct guesses, 
-// and sends an alert that responds to their answers.
+// Initializes user "guess" variable
 var userGuess = '';
 
-// Generates a random number between 20 and 100 and stores as the number of hacker duels I have supposedly won,
-// then prompts the user to guess that number until they have guessed four times or guessed correctly.
-// Gives the user an alert each time they guess telling them if their guess is high, low, or correct.
+// Determines user prompt and alert text, and generates a random value to be used in the "hacker duel" numerical guessing game.
 var hackerDuels = Math.floor(Math.random() * 81) + 20;
 console.log('I have supposedly won ' + hackerDuels + ' hacker duels.');
 
@@ -90,9 +89,8 @@ var guessCount = 0;
 var duelPrompt = 'Alright, now for the cool questions. How many hacker duels do you think I\'ve won? You have 4 tries to guess.';
 var duelResp = 'Nice try... I have defeated ' + hackerDuels + ' foolish hackers. Cross me and you\'ll be the ' + hackerDuels + 'th, ' + name + '.';
 
-// variables holding questions, answers and alert text for  
+// Determines prompt and alert text, as well as correct answer values, for the "weapons I am proficient with" guessing game.
 var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre humor'];
-var guessRight = false;
 var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
 var wepResp = 'Okay, stop, I\'ll just tell you.';
 var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reason, and mediocre humor.';
@@ -100,18 +98,20 @@ var wepAll = 'I have mastered the batlith, crysknife, phaser, nuclear ICBM, Reas
 // Gives user an alert telling them how many guesses they got right
 var knowMe = '';
 
-// run functions
-yNQuestion();
+// Runs the guessing games. 
+checkYN();
+yNQuestion(aboutMeYN, aboutMeYNAnswers, aboutMeCorrect, aboutMeIncorrect);
 numGuess();
 wepGuess();
 userGuessScore();
 
 
-function yNQuestion(){
+// Plays a yes/no guessing game with the user with arrays containing questions, answers, and responses
+// for correct and incorrect guesses as parameters.
+function yNQuestion(questions, answer, respCorrect, respIncorrect){
     for (var i = 0; i < questions.length; i++) {
         userGuess = prompt(questions[i]).charAt(0).toLowerCase();
         console.log('user guessed ' + userGuess);
-
         if (userGuess === answer[i]) {
             alert(respCorrect[i]);
             correctCount++;
@@ -127,7 +127,10 @@ function yNQuestion(){
 };
 
 
-
+// Prompts user to play a numerical guessing game; user must guess a randomized integer value representing the 
+// number of of "hacker duels" I have supposedly won, between 20 and 100. 
+// If the user guesses incorrectly, informs the user whether their guess was high or low, 
+// Continues prompting the user for up to four guesses, or until user guesses correctly
 function numGuess(){
     while (guessCount < 4) {
         userGuess = prompt(duelPrompt);
@@ -146,9 +149,10 @@ function numGuess(){
             alert('You underestimate my power!');
             console.log('User guessed low');
         } else if (typeof userGuess != 'number') {
-            alert();
+            alert('Try guessing a number this time.');
             console.log('User may have put in some bad input.');
         } else {
+            alert('Uh....');
             console.log('Not sure how we got here...');
         }
     }
@@ -160,11 +164,12 @@ function numGuess(){
 // Allows the user six attempts to guess correctly, and informs user how many guesses they have left if they guess incorrectly.
 function wepGuess(){
     guessCount = 0;
+    var guessRight = false;
     while (guessCount < 6 && !guessRight) {
     userGuess = prompt(wepPrompt).toLowerCase();
     console.log('user guessed ' + userGuess);
     guessCount++;
-    wepPrompt = 'Still training on that one... You have ' + (6 - guessCount) + ' tries left.';
+    wepPrompt = 'Still training on that one... You have ' + (wepProfs.length - guessCount) + ' tries left.';
     for (var i = 0; i < wepProfs.length; i++) {
         switch (wepProfs[i]) {
             case userGuess:
@@ -181,6 +186,7 @@ function wepGuess(){
     alert(wepResp + ' ' + wepAll);
 }
 
+// Displays message informing user of the number of questions they have answered correctly.
 function userGuessScore(){
     if (correctCount === 7) {
         knowMe = ' NICE! NICE! YOU ARE ABSOLUTE PERFECTION!';

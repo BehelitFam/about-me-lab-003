@@ -1,16 +1,18 @@
 body {
     background-image: url("sweetBackground.jpg");
     background-color: rgb(190, 247, 255);
+    background-repeat: no-repeat;
+    color: rgb(194, 192, 159);
+    display: inline-block;
     font-size: 10;
     list-style-type: square;
     text-align: center;
-    display: inline-block;
-    color: rgb(230, 230, 230);
 }
 
-header, div {
-    background: linear-gradient(rgba(37, 3, 2, 0.99), rgba(124, 0, 0, .1));
-    border: 1px solid linear-gradient(rgba(14, 2, 1, 0.9), rgba(150, 0, 0, .2));
+header, div, footer {
+    background: linear-gradient(rgba(20, 13, 9, 0.9), rgba(27, 20, 20, 0.7));
+    border: 1px solid linear-gradient(rgba(14, 2, 1, 1), rgba(131, 77, 77, 0.9));
+    margin: auto;
 }
 
 header {
@@ -26,38 +28,35 @@ header {
     width: 160px;
 }
 
-.imageDesc {
-    display: inline;
-}
+
 
 h1 {
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 p {
     text-align: left;
-    margin: 20px;
+    margin: 15px;
     padding: 5px;
 }
 
-main {
-    margin: 25px;
-}
 
-section {
-    margin: 5px;
-    padding: 10px;
+div {
+    margin-top: 10px;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 ul, ol {
     padding: 5px;
+    margin:0 auto;
+    list-style-position: inside;
 }
 
 ol {
@@ -69,10 +68,13 @@ li {
     margin-top: 5px;
 }
 
+.footerMessage {
+    margin: auto;
+    text-align: center;
+}
+
 footer {
-    font-size: 50px;
-    background: linear-gradient(rgb(162, 225, 250, .2), rgba(60, 206, 216, 1));
-    height: 150px;
     color: rgb(230, 230, 230);
-    padding: 40px;
+    font-size: 30px;
+    height: 150px;
 }
