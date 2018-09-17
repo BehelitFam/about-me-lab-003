@@ -90,10 +90,7 @@ var guessCount = 0;
 var duelPrompt = 'Alright, now for the cool questions. How many hacker duels do you think I\'ve won? You have 4 tries to guess.';
 var duelResp = 'Nice try... I have defeated ' + hackerDuels + ' foolish hackers. Cross me and you\'ll be the ' + hackerDuels + 'th, ' + name + '.';
 
-// Prompts user to guess what science fiction / fantasy weapons I am proficient with. 
-// User answers will be compared with an array containing the weapons I can use effectively.
-// When a user guesses correctly, they will be congratulated; if not, they will be asked five more 
-// times to guess correctly. 
+// variables holding questions, answers and alert text for  
 var wepProfs = ['batlith', 'crysknife', 'phaser', 'nuclear icbm', 'reason', 'mediocre humor'];
 var guessRight = false;
 var wepPrompt = 'Alright, last question. I am proficient with a number of weapons. Try and guess one of them; you have six tries.';
@@ -159,13 +156,15 @@ function numGuess(){
     alert(duelResp);
 }
 
+// Prompts user to guess which fantasy/scifi weapons I am supposedly proficient with, from an array of potential answers.
+// Allows the user six attempts to guess correctly, and informs user how many guesses they have left if they guess incorrectly.
 function wepGuess(){
     guessCount = 0;
     while (guessCount < 6 && !guessRight) {
     userGuess = prompt(wepPrompt).toLowerCase();
     console.log('user guessed ' + userGuess);
     guessCount++;
-    wepPrompt = 'Still working on that one... You have ' + (6 - guessCount) + ' tries left.';
+    wepPrompt = 'Still training on that one... You have ' + (6 - guessCount) + ' tries left.';
     for (var i = 0; i < wepProfs.length; i++) {
         switch (wepProfs[i]) {
             case userGuess:

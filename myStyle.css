@@ -8,7 +8,7 @@ body {
     color: rgb(230, 230, 230);
 }
 
-header, section {
+header, div {
     background: linear-gradient(rgba(37, 3, 2, 0.99), rgba(124, 0, 0, .1));
     border: 1px solid linear-gradient(rgba(14, 2, 1, 0.9), rgba(150, 0, 0, .2));
 }
@@ -17,6 +17,17 @@ header {
     height: 70px;
     line-height: 70px;
     margin: 20px;
+}
+
+.profileImage {
+    display: inline-block;;
+    height: 80px;
+    margin: 10px;
+    width: 160px;
+}
+
+.imageDesc {
+    display: inline;
 }
 
 h1 {
@@ -34,8 +45,6 @@ p {
     margin: 20px;
     padding: 5px;
 }
-
-p
 
 main {
     margin: 25px;
