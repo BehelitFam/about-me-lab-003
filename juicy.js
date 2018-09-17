@@ -105,7 +105,6 @@ numGuess();
 wepGuess();
 userGuessScore();
 
-// .
 
 // Plays a yes/no guessing game with the user with arrays containing questions, answers, and responses
 // for correct and incorrect guesses as parameters.
